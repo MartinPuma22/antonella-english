@@ -1,0 +1,51 @@
+.wimg { width: 100%; height: 100%; object-fit: contain; display: block; }
+.wemoji { font-size: 3rem; display: grid; place-items: center; width: 100%; height: 100%; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 22px; align-items: start; }
+@media (max-width: 760px) { .layout { grid-template-columns: 1fr; } }
+.side { background: var(--bg); border-radius: 20px; padding: 14px; }
+.side h3 { margin: 0 0 10px; font-family: var(--font-title); font-weight: 500; color: var(--berry); }
+.word { display: flex; justify-content: space-between; gap: 8px; padding: 7px 10px; margin-bottom: 6px; background: var(--card); border-radius: 12px; border: 2px solid var(--line); cursor: pointer; }
+.word.done { background: #e4f7ed; border-color: var(--ok); text-decoration: line-through; }
+
+/* Sopa de letras */
+.grid { display: grid; gap: 4px; max-width: 520px; margin: 0 auto; touch-action: manipulation; }
+.cell { aspect-ratio: 1; border: 2px solid var(--line); background: var(--bg); border-radius: 10px; font-weight: 800; font-size: clamp(.9rem, 3.4vw, 1.3rem); padding: 0; transition: .12s; }
+.cell:hover { background: var(--bg-2); }
+.cell.start { background: var(--rose); border-color: var(--rose-strong); transform: scale(1.1); }
+.cell.found { background: var(--ok); border-color: #4aa97c; color: #fff; }
+
+/* Rompecabezas */
+.board { position: relative; width: min(100%, 420px); aspect-ratio: 1; margin: 0 auto; background: var(--bg-2); border-radius: 18px; overflow: hidden; border: 4px solid var(--rose); }
+.tile { position: absolute; width: 33.333%; height: 33.333%; border: 2px solid #fff; border-radius: 10px; background-size: 300% 300%; cursor: pointer; transition: left .18s, top .18s; }
+.tile.empty { visibility: hidden; }
+.board.solved .tile { border-color: transparent; border-radius: 0; }
+.thumb { width: 130px; aspect-ratio: 1; border-radius: 14px; border: 3px solid var(--line); background-size: cover; margin: 0 auto 12px; }
+
+/* Memoria */
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 560px; margin: 0 auto; }
+.mcard { aspect-ratio: 1; perspective: 700px; border: 0; background: none; padding: 0; }
+.mcard .in { position: relative; width: 100%; height: 100%; transition: transform .45s; transform-style: preserve-3d; }
+.mcard.flip .in, .mcard.match .in { transform: rotateY(180deg); }
+.face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 16px; display: grid; place-items: center; border: 3px solid var(--line); overflow: hidden; padding: 8px; }
+.face.back { background: repeating-linear-gradient(45deg, var(--rose), var(--rose) 10px, #f9c6d8 10px, #f9c6d8 20px); font-size: 2rem; }
+.face.front { background: #fff; transform: rotateY(180deg); font-family: var(--font-title); font-size: clamp(1rem, 3.5vw, 1.5rem); color: var(--berry); text-align: center; }
+.mcard.match .front { border-color: var(--ok); background: #effaf4; }
+
+/* Quiz y Ordena */
+.center { text-align: center; }
+.big { width: 190px; height: 190px; margin: 0 auto 16px; background: var(--bg); border-radius: 26px; border: 3px solid var(--line); padding: 12px; }
+.big .wemoji { font-size: 6rem; }
+.opts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 480px; margin: 0 auto; }
+.opt { padding: 14px; border-radius: 16px; border: 3px solid var(--line); background: #fff; font-family: var(--font-title); font-size: 1.25rem; transition: .12s; }
+.opt:hover { border-color: var(--rose); transform: translateY(-2px); }
+.opt.right { background: #e4f7ed; border-color: var(--ok); }
+.opt.wrong { background: #fdeaea; border-color: var(--no); }
+.slots, .bank { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 14px 0; min-height: 56px; }
+.slot, .let { width: 52px; height: 56px; border-radius: 14px; font-family: var(--font-title); font-size: 1.6rem; display: grid; place-items: center; }
+.slot { border: 3px dashed var(--rose); background: var(--bg); padding: 0; }
+.slot.ok { border-style: solid; border-color: var(--ok); background: #e4f7ed; }
+.let { border: 3px solid var(--rose); background: #fff; box-shadow: 0 4px 0 var(--line); }
+.let:disabled { opacity: .25; }
+.msg { min-height: 1.6em; font-weight: 800; color: var(--berry); }
+.bounce { animation: pop .4s; }
+@keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.12); } 100% { transform: scale(1); } }

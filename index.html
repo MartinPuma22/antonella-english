@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Antonella aprende inglés</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/css/base.css" />
+  <link rel="stylesheet" href="src/css/games.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">🌸</span>
+      <div>
+        <h1>¡Hola, <span id="studentName">Antonella</span>!</h1>
+        <p>Hoy vamos a jugar y aprender inglés</p>
+      </div>
+    </div>
+    <div class="tools">
+      <div class="stars" title="Tus estrellas">⭐ <b id="starCount">0</b></div>
+      <button class="chip" id="btnTranslate" aria-pressed="false">🇪🇸 Ver traducciones</button>
+      <button class="chip" id="btnMusic" aria-pressed="false">🎵 Música</button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Juegos"></nav>
+
+  <main id="stage" class="stage" aria-live="polite"></main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <footer>Hecho con cariño para Antonella 💗</footer>
+
+  <script type="module" src="src/js/main.js"></script>
+</body>
+</html>
